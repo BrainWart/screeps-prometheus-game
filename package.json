@@ -1,11 +1,11 @@
 {
-  "name": "screeps-prometheus-game",
+  "name": "@brainwart/screeps-prometheus-game",
   "version": "0.0.1",
   "description": "A way to create memory easier for the corresponding Prometheus exporter",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
@@ -15,7 +15,11 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "keywords": ["screeps", "prometheus", "grafana"],
+  "keywords": [
+    "screeps",
+    "prometheus",
+    "grafana"
+  ],
   "author": "Cody McGinnis",
   "license": "MIT",
   "devDependencies": {
@@ -24,5 +28,7 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
   },
-  "files": ["lib/**/*"]
+  "files": [
+    "lib/**/*"
+  ]
 }
