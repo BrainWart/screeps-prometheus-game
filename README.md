@@ -50,3 +50,8 @@ for (const roomName in Game.rooms) {
   }
 }
 ```
+
+Build the memory and add it
+```typescript
+Memory.stats = prom.build();
+```
