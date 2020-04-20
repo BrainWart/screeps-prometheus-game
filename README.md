@@ -7,7 +7,7 @@ This is the library to make setting up screepsPrometheus easier.
 Install the package from npm.
 
 ```
-npm i --save-dev @brainwart/screeps-prometheus-game
+npm i @brainwart/screeps-prometheus-game
 ```
 
 Import the ScreepPrometheus class.
