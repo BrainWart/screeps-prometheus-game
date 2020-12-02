@@ -8,7 +8,7 @@ class Buildable {
   private children: PrometheusObject[] = [];
 
   public add(c: new (...args: any[]) => Prefix, prefix: string): Prefix;
-  public add(c: new (...args: any[]) => Label, label: string, value: number): Label;
+  public add(c: new (...args: any[]) => Label, label: string, value: string): Label;
   public add(c: new (...args: any[]) => Gauge, name: string, value: number, help?: string): Gauge;
   public add<T extends PrometheusObject>(c: new (...args: any[]) => T, arg0?: any, arg1?: any, arg2?: any): T {
     const child: T = new c(arg0, arg1, arg2);
