@@ -13,7 +13,7 @@ npm i --save-dev @brainwart/screeps-prometheus-game
 Import the ScreepPrometheus class.
 
 ```typescript
-import { ScreepsPrometheus } from '@brainwart/screeps-prometheus-game/lib/index';
+import { ScreepsPrometheus } from '@brainwart/screeps-prometheus-game';
 ```
 
 Create a copy of the class
