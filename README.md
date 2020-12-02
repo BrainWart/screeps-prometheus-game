@@ -13,7 +13,7 @@ npm i @brainwart/screeps-prometheus-game
 Import the ScreepPrometheus class.
 
 ```typescript
-import { ScreepsPrometheus } from '@brainwart/screeps-prometheus-game/lib/index';
+import { ScreepsPrometheus } from '@brainwart/screeps-prometheus-game';
 ```
 
 Create a copy of the class
@@ -25,30 +25,33 @@ const prom = new ScreepsPrometheus();
 Add prefixes, gauges, and labels as needed
 
 ```typescript
-const cpu = prom.addPrefix('cpu');
-cpu.addGauge('used', Game.cpu.getUsed());
-cpu.addGauge('bucket', Game.cpu.bucket);
+const prom = new ScreepsPrometheus();
+const cpu = prom.add(Prefix, 'cpu');
+cpu.add(Gauge, 'used', Game.cpu.getUsed());
+cpu.add(Gauge, 'bucket', Game.cpu.bucket);
 
-const rooms = prom.addPrefix('roomSummary');
+const rooms = prom.add(Prefix, 'roomSummary');
 
 for (const roomName in Game.rooms) {
   const room = Game.rooms[roomName];
 
   if (room.controller && room.controller.my) {
-    const roomSummary = rooms.addLabel('roomName', roomName);
+    const roomSummary = rooms.add(Label, 'roomName', roomName);
 
-    const controller = roomSummary.addPrefix('controller');
-    controller.addGauge('level', room.controller.level).addHelp('Current controller level');
-    controller.addGauge('progress', room.controller.progress);
-    controller.addGauge('progressNeeded', room.controller.progressTotal);
-    controller.addGauge('downgrade', room.controller.ticksToDowngrade);
+    const controller = roomSummary.add(Prefix, 'controller');
+    controller.add(Gauge, 'level', room.controller.level, 'Current controller level');
+    controller.add(Gauge, 'progress', room.controller.progress);
+    controller.add(Gauge, 'progressNeeded', room.controller.progressTotal);
+    controller.add(Gauge, 'downgrade', room.controller.ticksToDowngrade);
 
     if (room.storage) {
-      const storage = roomSummary.addPrefix('storage');
-      storage.addGauge('energy', 20);
+      const storage = roomSummary.add(Prefix, 'storage');
+      storage.add(Gauge, 'energy', 20);
     }
   }
 }
+
+Memory.stats = prom.build();
 ```
 
 Build the memory and add it
