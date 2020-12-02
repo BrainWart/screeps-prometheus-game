@@ -1,6 +1,6 @@
 {
   "name": "@brainwart/screeps-prometheus-game",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A way to create memory easier for the corresponding Prometheus exporter",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
